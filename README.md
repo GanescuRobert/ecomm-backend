@@ -28,3 +28,8 @@ flake8
 ```
 black .
 ```
+
+# Run the tests:
+```
+pytest
+```
