@@ -18,3 +18,13 @@ pip install -r requirements.txt
 ```
 uvicorn app.main:app --reload
 ```
+
+# Run Flake8 and check for linting issues:
+```
+flake8
+```
+
+# Run Black and format your code:
+```
+black .
+```
