@@ -33,3 +33,13 @@ black .
 ```
 pytest
 ```
+
+# Build the Docker Image:
+```
+docker build -t ecomm-backend .
+```
+
+# Run the Docker Container:
+```
+docker run -d -p 8000:8000 ecomm-backend
+```
