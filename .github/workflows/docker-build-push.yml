@@ -28,3 +28,6 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKER_IMAGE_TAG }}
+
+      - name: Run Docker container
+        run: docker run -d -p 8080:80 ${{ secrets.DOCKER_IMAGE_TAG }}
