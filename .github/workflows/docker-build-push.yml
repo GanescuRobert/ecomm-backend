@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - feature/EBE-7/rganescu-set-up-dockerfile
 
 jobs:
   build-and-deploy:
