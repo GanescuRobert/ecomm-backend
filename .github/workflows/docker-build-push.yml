@@ -1,10 +1,9 @@
-name: Docker Build, Push and Run
+name: Docker Build and Push
 
 on:
   push:
     branches:
       - main
-      - feature/EBE-7/rganescu-set-up-dockerfile
 
 jobs:
   build-and-deploy:
@@ -29,6 +28,3 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKER_IMAGE_TAG }}
-
-      - name: Run Docker container
-        run: docker run -d -p 8000:8000 ${{ secrets.DOCKER_IMAGE_TAG }}
