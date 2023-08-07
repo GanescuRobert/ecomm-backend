@@ -43,3 +43,8 @@ docker build -t ecomm-backend .
 ```
 docker run -d -p 8000:8000 ecomm-backend
 ```
+
+# Run the Docker compose:
+```
+docker-compose up --build
+```
