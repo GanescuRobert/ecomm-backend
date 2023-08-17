@@ -10,10 +10,10 @@ class Product(Base):
     merchandiser_id = Column(Integer, ForeignKey("merchandisers.merchandiser_id"))
     SKU = Column(String, index=True)
     price = Column(Float)
-    quantity = Column(Integer)
     delivery_time = Column(String)
     is_active = Column(Boolean, default=True)
 
+    attributes = relationship("ProductAttribute", back_populates="product")
     merchandiser = relationship("Merchandiser", back_populates="products")
     images = relationship("ProductImage", back_populates="product")
     cart_items = relationship("CartItem", back_populates="product")
