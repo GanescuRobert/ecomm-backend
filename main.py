@@ -2,6 +2,9 @@ import os
 import uvicorn
 from dotenv import load_dotenv
 from app.main import app
+from app.database.setup import create_models
+
+create_models()
 
 load_dotenv()
 
