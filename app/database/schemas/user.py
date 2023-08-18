@@ -47,28 +47,29 @@ class UserRegister(BaseModel):
     is_superuser: bool
 
     @field_validator("password")
-    def validate_password(cls, value):
+    def validate_password(cls, secret_password_str: SecretStr):
+        password_value = secret_password_str.get_secret_value()
         # Check for the size of password
-        if not (8 <= len(value) <= 16):
+        if not (8 <= len(password_value) <= 16):
             raise ValueError("Password length must be between 8 and 16 characters.")
 
         # Check for at least one uppercase letter
-        if not any(c.isupper() for c in value):
+        if not any(c.isupper() for c in password_value):
             raise ValueError("Password must contain at least one uppercase letter")
 
         # Check for at least one lowercase letter
-        if not any(c.islower() for c in value):
+        if not any(c.islower() for c in password_value):
             raise ValueError("Password must contain at least one lowercase letter")
 
         # Check for at least one digit
-        if not any(c.isdigit() for c in value):
+        if not any(c.isdigit() for c in password_value):
             raise ValueError("Password must contain at least one digit")
 
         # Check for at least one symbol
-        if not any(c in "!@#$%^&*()-_=+[]{};:'\",.<>/?\\|" for c in value):
+        if not any(c in "!@#$%^&*()-_=+[]{};:'\",.<>/?\\|" for c in password_value):
             raise ValueError("Password must contain at least one symbol")
 
-        return value
+        return secret_password_str
 
 
 class UserLogin(BaseModel):

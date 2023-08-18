@@ -1,11 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from app.services.auth import create_jwt_token
 from app.database.models.user import User
-
 from app.database.models.cart import Cart
 from app.database.schemas.user import UserLogin, UserRegister
 from app.database.session import get_database_session
+from app.services.auth.create_jwt_token import create_jwt_token
 from passlib.context import CryptContext
 
 router = APIRouter()
