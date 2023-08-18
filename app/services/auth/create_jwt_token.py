@@ -1,7 +1,7 @@
 import jwt
 from datetime import datetime, timedelta
 
-from app.services.helpers import settings
+from app.services.helpers.settings import settings
 
 
 def create_jwt_token(username: str) -> str:

@@ -1,7 +1,7 @@
 from email.header import Header
 from fastapi import HTTPException, Security, Depends
 import jwt
-from app.services.helpers import settings
+from app.services.helpers.settings import settings
 
 
 def _get_authorization_header(authorization: str = Header(None)):
