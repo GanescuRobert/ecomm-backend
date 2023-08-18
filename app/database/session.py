@@ -4,7 +4,10 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-DATABASE_URL = os.getenv("DATABASE_URL")
+DATABASE_URL = os.getenv(
+    "DATABASE_URL",
+    "postgresql://postgres_user:postgres_password@postgres:5432/postgres_database",
+)
 
 
 def get_database_session():
