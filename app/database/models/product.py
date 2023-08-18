@@ -7,13 +7,13 @@ class Product(Base):
     __tablename__ = "products"
 
     product_id = Column(Integer, primary_key=True, index=True)
-    merchandiser_id = Column(Integer, ForeignKey("merchandisers.merchandiser_id"))
+    user_id = Column(Integer, ForeignKey("users.user_id"))
     SKU = Column(String, index=True)
     price = Column(Float)
     delivery_time = Column(String)
     is_active = Column(Boolean, default=True)
 
-    attributes = relationship("ProductAttribute", back_populates="product")
-    merchandiser = relationship("Merchandiser", back_populates="products")
+    user = relationship("User", back_populates="products")
     images = relationship("ProductImage", back_populates="product")
     cart_items = relationship("CartItem", back_populates="product")
+    product_attributes = relationship("ProductAttributes", back_populates="product")

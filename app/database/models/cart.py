@@ -7,8 +7,8 @@ class Cart(Base):
     __tablename__ = "carts"
 
     cart_id = Column(Integer, primary_key=True, index=True)
-    customer_id = Column(Integer, ForeignKey("customers.customer_id"))
+    user_id = Column(Integer, ForeignKey("users.user_id"), unique=True)
     status = Column(String)
 
-    customer = relationship("Customer", back_populates="carts")
+    user = relationship("User", back_populates="cart")
     cart_items = relationship("CartItem", back_populates="cart")
