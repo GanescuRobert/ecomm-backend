@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from app.api.routers.helpers.create_jwt_token import create_jwt_token
+from app.services.auth import create_jwt_token
 from app.database.models.user import User
 
 from app.database.models.cart import Cart

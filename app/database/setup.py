@@ -14,5 +14,4 @@ from app.database.models.size import Size
 
 
 def create_models():
-
     Base.metadata.create_all(bind=engine)
